@@ -1,0 +1,4 @@
+include README.rst
+include setup.py
+include auto_resizing_text_edit.py
+recursive-include tests *.py
