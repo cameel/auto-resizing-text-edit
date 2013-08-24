@@ -10,6 +10,11 @@ setup(
     author_email     = 'cameel2/at/gmail/com',
     url              = 'https://github.com/cameel/auto-resizing-text-edit',
     packages         = find_packages(),
+    # auto-resizing-text-edit depends on PyQt, but there's no real gain in listing it here.
+    # Firstly, it does not have egg-info (at least on Arch Linux) and setuptools can't find it.
+    # Secondly it won't be installed automatically because it does not provide its own setup.py
+    # script. It needs to be installed outside of setuptools instead.
+    #install_requires = ['PyQt5'],
     test_suite       = 'auto_resizing_text_edit.tests',
     license          = 'MIT',
     classifiers      = [
