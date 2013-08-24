@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name             = 'auto-resizing-text-edit',
@@ -9,7 +9,7 @@ setup(
     author           = 'Kamil Śliwak',
     author_email     = 'cameel2/at/gmail/com',
     url              = 'https://github.com/cameel/auto-resizing-text-edit',
-    packages         = ['auto_resizing_text_edit'],
+    packages         = find_packages(),
     license          = 'MIT',
     classifiers      = [
         'Development Status :: 3 - Alpha',
