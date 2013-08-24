@@ -10,6 +10,7 @@ setup(
     author_email     = 'cameel2/at/gmail/com',
     url              = 'https://github.com/cameel/auto-resizing-text-edit',
     packages         = find_packages(),
+    test_suite       = 'auto_resizing_text_edit.tests',
     license          = 'MIT',
     classifiers      = [
         'Development Status :: 3 - Alpha',
