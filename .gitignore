@@ -7,3 +7,7 @@ __pycache__
 
 # Tox' virtualenvs
 /.tox
+
+# Built package files (setuptools)
+/*.egg-info
+/*.egg
