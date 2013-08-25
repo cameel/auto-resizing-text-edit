@@ -1,9 +1,8 @@
 """ A text editor that automatically adjusts its height to the height of the text
     in its document when managed by a layout. """
 
-from PyQt5.QtWidgets import QTextEdit, QSizePolicy
-from PyQt5.QtGui     import QFontMetrics
-from PyQt5.QtCore    import QSize
+from PyQt4.QtGui  import QTextEdit, QSizePolicy, QFontMetrics
+from PyQt4.QtCore import QSize
 
 class AutoResizingTextEdit(QTextEdit):
     def __init__(self, parent = None):

@@ -1,7 +1,7 @@
 """ This example demonstrates how a single AutoResizingTextEdit adjusts its size. """
 
 import sys
-from PyQt5.QtWidgets         import QApplication, QWidget, QVBoxLayout
+from PyQt4.QtGui             import QApplication, QWidget, QVBoxLayout
 from auto_resizing_text_edit import AutoResizingTextEdit
 
 application = QApplication(sys.argv)

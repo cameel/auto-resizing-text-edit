@@ -8,6 +8,6 @@
 
 import sys
 
-from PyQt5.QtWidgets import QApplication
+from PyQt4.QtGui import QApplication
 
 application = QApplication(sys.argv)
