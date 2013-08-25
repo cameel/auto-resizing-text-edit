@@ -2,7 +2,7 @@
     It also shows how to use lineCountToWidgetHeight(). """
 
 import sys
-from PyQt5.QtWidgets         import QApplication, QWidget, QTextEdit, QVBoxLayout, QSizePolicy
+from PyQt4.QtGui             import QApplication, QWidget, QTextEdit, QVBoxLayout, QSizePolicy
 from auto_resizing_text_edit import AutoResizingTextEdit
 
 application = QApplication(sys.argv)
