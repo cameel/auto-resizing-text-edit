@@ -19,6 +19,12 @@ class AutoResizingTextEdit(QTextEdit):
 
         self.textChanged.connect(lambda: self.updateGeometry())
 
+    def setMinimumLines(self, num_lines):
+        """ Sets minimum widget height to a value corresponding to specified number of lines
+            in the default font. """
+
+        self.setMinimumSize(self.minimumSize().width(), self.lineCountToWidgetHeight(num_lines))
+
     def hasHeightForWidth(self):
         return True
 

@@ -73,6 +73,15 @@ class AutoResizingTextEditTest(unittest.TestCase):
         self.assertEqual(self.auto_resizing_text_edit.height(), new_height_hint)
         self.assertEqual(self.auto_resizing_text_edit.width(),  parent.width())
 
+    def test_setMinimumLines_should_set_minimum_height_to_specified_number_of_lines(self):
+        for num_lines in range(5):
+            minimum_size_before = self.auto_resizing_text_edit.minimumSize()
+
+            self.auto_resizing_text_edit.setMinimumLines(num_lines)
+
+            self.assertEqual(self.auto_resizing_text_edit.minimumSize().width(), minimum_size_before.width())
+            self.assertEqual(self.auto_resizing_text_edit.minimumSize().height(), self.auto_resizing_text_edit.lineCountToWidgetHeight(num_lines))
+
     def test_heightForWidth_should_return_height_based_on_height_of_document_with_same_content_if_there_are_no_margins(self):
         text = (('x ' * 10) + '\n') * 10
 
