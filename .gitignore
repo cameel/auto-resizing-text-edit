@@ -4,3 +4,10 @@
 # python bytecode
 __pycache__
 *.py[cod]
+
+# Tox' virtualenvs
+/.tox
+
+# Built package files (setuptools)
+/*.egg-info
+/*.egg
