@@ -73,6 +73,15 @@ class AutoResizingTextEditTest(unittest.TestCase):
         self.assertEqual(self.auto_resizing_text_edit.height(), new_height_hint)
         self.assertEqual(self.auto_resizing_text_edit.width(),  parent.width())
 
+    def test_setMinimumLines_should_set_minimum_height_to_specified_number_of_lines(self):
+        for num_lines in range(5):
+            minimum_size_before = self.auto_resizing_text_edit.minimumSize()
+
+            self.auto_resizing_text_edit.setMinimumLines(num_lines)
+
+            self.assertEqual(self.auto_resizing_text_edit.minimumSize().width(), minimum_size_before.width())
+            self.assertEqual(self.auto_resizing_text_edit.minimumSize().height(), self.auto_resizing_text_edit.lineCountToWidgetHeight(num_lines))
+
     def test_heightForWidth_should_return_height_based_on_height_of_document_with_same_content_if_there_are_no_margins(self):
         text = (('x ' * 10) + '\n') * 10
 
@@ -131,7 +140,7 @@ class AutoResizingTextEditTest(unittest.TestCase):
         self.assertGreater(size_hint.width(), 0)
         self.assertEqual(size_hint.height(), self.auto_resizing_text_edit.heightForWidth(size_hint.height()))
 
-    def test_line_count_to_widget_height_should_return_correct_widget_height(self):
+    def test_lineCountToWidgetHeight_should_return_correct_widget_height(self):
         for num_lines in range(5):
             text = '\n'.join(['line'] * num_lines)
             self.auto_resizing_text_edit.setPlainText(text)
@@ -139,6 +148,6 @@ class AutoResizingTextEditTest(unittest.TestCase):
             # Use width high enough to avoid line wrapping
             expected_height = self.auto_resizing_text_edit.heightForWidth(1000)
 
-            height = self.auto_resizing_text_edit.line_count_to_widget_height(num_lines)
+            height = self.auto_resizing_text_edit.lineCountToWidgetHeight(num_lines)
 
             self.assertEqual((height, num_lines), (expected_height, num_lines))

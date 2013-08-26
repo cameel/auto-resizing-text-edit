@@ -7,7 +7,7 @@ from PyQt5.QtCore    import QSize
 
 class AutoResizingTextEdit(QTextEdit):
     def __init__(self, parent = None):
-        super().__init__(parent)
+        super(AutoResizingTextEdit, self).__init__(parent)
 
         # This seems to have no effect. I have expected that it will cause self.hasHeightForWidth()
         # to start returning True, but it hasn't - that's why I hardcoded it to True there anyway.
@@ -18,6 +18,12 @@ class AutoResizingTextEdit(QTextEdit):
         self.setSizePolicy(size_policy)
 
         self.textChanged.connect(lambda: self.updateGeometry())
+
+    def setMinimumLines(self, num_lines):
+        """ Sets minimum widget height to a value corresponding to specified number of lines
+            in the default font. """
+
+        self.setMinimumSize(self.minimumSize().width(), self.lineCountToWidgetHeight(num_lines))
 
     def hasHeightForWidth(self):
         return True
@@ -46,10 +52,13 @@ class AutoResizingTextEdit(QTextEdit):
         return margins.top() + document.size().height() + margins.bottom()
 
     def sizeHint(self):
-        original_hint = super().sizeHint()
+        original_hint = super(AutoResizingTextEdit, self).sizeHint()
         return QSize(original_hint.width(), self.heightForWidth(original_hint.width()))
 
-    def line_count_to_widget_height(self, num_lines):
+    def lineCountToWidgetHeight(self, num_lines):
+        """ Returns the number of pixels corresponding to the height of specified number of lines
+            in the default font. """
+
         # ASSUMPTION: The document uses only the default font
 
         assert num_lines >= 0
