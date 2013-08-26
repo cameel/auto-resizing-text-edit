@@ -49,7 +49,7 @@ class AutoResizingTextEdit(QTextEdit):
         original_hint = super().sizeHint()
         return QSize(original_hint.width(), self.heightForWidth(original_hint.width()))
 
-    def line_count_to_widget_height(self, num_lines):
+    def lineCountToWidgetHeight(self, num_lines):
         # ASSUMPTION: The document uses only the default font
 
         assert num_lines >= 0
