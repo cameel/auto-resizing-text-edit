@@ -50,6 +50,9 @@ class AutoResizingTextEdit(QTextEdit):
         return QSize(original_hint.width(), self.heightForWidth(original_hint.width()))
 
     def lineCountToWidgetHeight(self, num_lines):
+        """ Returns the number of pixels corresponding to the height of specified number of lines
+            in the default font. """
+
         # ASSUMPTION: The document uses only the default font
 
         assert num_lines >= 0
