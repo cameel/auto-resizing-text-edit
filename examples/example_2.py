@@ -1,5 +1,5 @@
 """ This example demonstrates how AutoResizingTextEdit interacts with other widgets in the same layout.
-    It also shows how to use line_count_to_widget_height(). """
+    It also shows how to use lineCountToWidgetHeight(). """
 
 import sys
 from PyQt5.QtWidgets         import QApplication, QWidget, QTextEdit, QVBoxLayout, QSizePolicy
